@@ -9,7 +9,7 @@ RUN npm config set registry https://registry.npmmirror.com/
 
 RUN npm install
 
-COPY .nest .
+COPY . .
 
 RUN npm run build
 
