@@ -15,4 +15,4 @@ RUN npm run build
 
 EXPOSE 9527
 
-CMD ["npm", "run" "start"]
+CMD ["npm", "run", "start"]
