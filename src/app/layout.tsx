@@ -5,14 +5,19 @@ import policeBadgeSrc from "~/img/police-badge.png";
 import jsmLogoSrc from "~/img/jsm-logo.png";
 import Link from "next/link";
 import NavBar from "@/ui/navBar";
+import { siteConfig } from "@/site/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "成都金双茂印刷设计",
-  description: "全成都最具有性价比的印刷设计一站式服务平台",
-  keywords: ["成都印刷", "包装加工", "印刷设计", "名片"],
-  formatDetection: { telephone: "yes" },
+  title: siteConfig.name,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: siteConfig.authors,
+  creator: siteConfig.creator,
+  themeColor: siteConfig.themeColor,
+  icons: siteConfig.icons,
+  formatDetection: siteConfig.formatDetection,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -27,11 +32,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="container mx-auto flex justify-between items-center text-sm md:text-md">
               <header className="w-full text-center md:p-0 flex items-center">
                 <div className="rounded-[50%] overflow-hidden">
-                  <Image src={jsmLogoSrc} alt="logo" priority width={50} height={50} />
+                  <Image src={jsmLogoSrc} alt="logo" priority width={25} height={25} />
                 </div>
                 <Link
                   href="/"
-                  className="py-3 w-full text-lg text-center md:text-left md:w-auto text-gray-600 no-underline flex justify-start items-center"
+                  className="py-3 pl-2 w-full text-lg text-center md:text-left md:w-auto text-gray-600 no-underline flex justify-start items-center"
                 >
                   成都金双茂印刷设计
                 </Link>
