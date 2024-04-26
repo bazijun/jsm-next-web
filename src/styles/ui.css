@@ -3,7 +3,7 @@
 }
 
 .cooperation-logo-box {
-  @apply relative z-10 aspect-square bg-white shadow-lg cursor-pointer hover:scale-105 transition-all duration-500;
+  @apply relative z-10 aspect-square bg-white shadow-lg cursor-pointer hover:scale-105 transition-all duration-500 flex justify-center items-center;
 }
 
 .text-shadow {

@@ -5,7 +5,7 @@ import policeBadgeSrc from "~/img/police-badge.png";
 import jsmLogoSrc from "~/img/jsm-logo.png";
 import Link from "next/link";
 import NavBar from "@/ui/navBar";
-import { siteConfig } from "@/site/config";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="zh-CN">
       <head>
-        <link rel="canonical" href="https://jsmyssj.cn" />
+        <link rel="canonical" href={process.env.SITE_URL} />
       </head>
       <body className={inter.className}>
         <main className="min-h-screen">

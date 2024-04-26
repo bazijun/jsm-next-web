@@ -8,7 +8,7 @@ import { QQSvg, TelSvg, WxSvg } from "./svg";
 import "@/styles/ui.css";
 import { Loading } from "./dotLoading";
 
-export function ContactButtons() {
+const useContactButtons = () => {
   const { isH5, isPC, isWX } = useClientType();
   const isMounted = useMounted();
   const QQ = "574214190";
@@ -19,24 +19,23 @@ export function ContactButtons() {
       title: isPC
         ? "扫一扫开始咨询"
         : isH5
-        ? "长按图片保存后在微信中打开"
-        : "长按图片添加好友开始咨询",
+          ? "长按图片保存后在微信中打开"
+          : "长按图片添加好友开始咨询",
       maskClosable: true,
       closable: true,
-      content: (
-        <Image
-          src={qrCodeSrc}
-          alt="微信二维码"
-          width={500}
-          height={500}
-          style={{ marginLeft: 20 }}
-          priority
-        />
-      ),
-      icon: null,
-      footer: null,
+      modalRender: () => <Image
+        src={qrCodeSrc}
+        alt="微信二维码"
+        priority
+        style={{ width: "350px" }}
+      />,
     });
   };
+  return { QQ, isH5, isPC, isWX, wxCardOpen, h5OpenQQHref, isMounted, pcOpenQQHref }
+}
+
+export function ContactButtons() {
+  const { QQ, isH5, isPC, isWX, wxCardOpen, h5OpenQQHref, isMounted, pcOpenQQHref } = useContactButtons()
   return isMounted ? (
     <div className="flex gap-3 w-full justify-center slide-in-bck-center">
       {!isPC && (
@@ -59,4 +58,11 @@ export function ContactButtons() {
   ) : (
     <Loading />
   );
+}
+
+export function WxButtonWarp({ children }: { children: React.ReactNode }) {
+  const { wxCardOpen } = useContactButtons()
+  return <a onClick={wxCardOpen} className="cursor-pointer">
+    {children}
+  </a>
 }
