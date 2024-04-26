@@ -155,7 +155,7 @@ export default function Home() {
             深耕行业二十余载
           </p>
           <ContactButtons />
-          SvgList</div>
+        </div>
       </div>
       <div className="container mx-auto px-6 flex flex-wrap justify-center items-center py-16">
         <div className="hidden lg:block slide-in-bottom">
