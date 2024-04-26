@@ -117,7 +117,7 @@ const BusinessServiceList: Array<Omit<Poster, 'logo'> & { Svg: React.FC<React.SV
 ]
 
 /** 先进设备 */
-export const EquipmentList: Poster[] = [
+const EquipmentList: Poster[] = [
   {
     logo: equipments_01Five_big,
     name: 'equipments_01Five_big',
